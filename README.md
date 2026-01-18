@@ -184,7 +184,7 @@ This project is licensed under the MIT License.
 ## Support
 
 For support and questions:
-- Create an issue on GitHub
+- Create an issue on Github
 - Contact the development team
 - Check the documentation
 

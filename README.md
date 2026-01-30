@@ -187,4 +187,5 @@ For support and questions:
 - Create an issue on Github
 - Contact the development team
 - Check the documentation
+- ---------
 

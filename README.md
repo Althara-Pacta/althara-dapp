@@ -1,4 +1,4 @@
-# Althara Pacta - Decentralized Tender Management DApp
+# Althara Pacta \ Decentralized Tender Management DApp
 
 A comprehensive decentralized application for managing government tenders using blockchain technology, built with Next.js, Tailwind CSS, and Web3.
 

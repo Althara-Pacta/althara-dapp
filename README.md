@@ -1,6 +1,6 @@
-# Althara Pacta \ Decentralized Tender Management DApp
+# Althara Pacta - Decentralized Tender Management DApp
 
-A comprehensivee decentralized application for managing government tenders using blockchain technology, built with Next.js, Tailwind CSS, and Web3.
+A comprehensive decentralized application for managing government tenders using blockchain technology, built with Next.js, Tailwind CSS, and Web3.
 
 ## Features
 
@@ -48,7 +48,7 @@ BID_SUBMISSION_CONTRACT_ADDRESS=YOUR_CONTRACT
 
 1. Clone the repository:
 ```bash
-git clone <https://github.com/Althara-Labs/althara-dapp>
+git clone https://github.com/Althara-Pacta/althara-dapp.git
 cd althara-dapp
 ```
 
@@ -157,7 +157,7 @@ src/
 
 ### Key Technologies
 
-- **Frontend**: Next.js 14 (App Router), TypeScript, Tailwind CSS
+- **Frontend**: Next.js 15 (App Router), TypeScript, Tailwind CSS
 - **Web3**: wagmi, viem
 - **Blockchain**: Ethereum (Sepolia), Filecoin (Calibration)
 - **Storage**: Synapse SDK for Filecoin
@@ -187,5 +187,4 @@ For support and questions:
 - Create an issue on Github
 - Contact the development team
 - Check the documentation
-- ---------
 

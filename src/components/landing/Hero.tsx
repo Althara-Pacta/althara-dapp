@@ -4,9 +4,8 @@ export default function Hero() {
   return (
     <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto text-center">
-        {/* Tagline */}
         <p className="text-lg text-gray-600 mb-6 font-medium">
-          Decentralize. Transparent. Secure.
+          Decentralized. Transparent. Secure.
         </p>
 
         {/* Main Headline */}

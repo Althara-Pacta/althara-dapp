@@ -16,7 +16,7 @@ import { ReactNode } from "react";
 
 const config = getDefaultConfig({
   appName: 'Althara Pacta',
-  projectId: process.env.NEXT_PUBLIC_PROJECT_ID!,
+  projectId: process.env.NEXT_PUBLIC_PROJECT_ID || '00000000000000000000000000000000',
   chains: [sepolia],
   ssr: true, 
 });

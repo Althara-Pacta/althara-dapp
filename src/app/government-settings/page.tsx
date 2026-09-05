@@ -129,7 +129,7 @@ export default function GovernmentSettings() {
                   📋 View Tenders
                 </Link>
                 <Link 
-                  href="/create-tender" 
+                  href="/tenders/create-tender" 
                   className="block w-full py-3 px-4 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700 transition-colors text-center"
                 >
                   ➕ Create New Tender

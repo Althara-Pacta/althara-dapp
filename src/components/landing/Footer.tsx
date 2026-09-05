@@ -9,9 +9,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-8 h-8 flex items-center justify-center">
-              <div className="w-8 h-8 flex items-center justify-center">
                 <Image src="/althara pacta logo.png" alt="Althara Pacta" width={32} height={32} />
-              </div>
               </div>
               <span className="text-xl font-bold">Althara Pacta</span>
             </div>

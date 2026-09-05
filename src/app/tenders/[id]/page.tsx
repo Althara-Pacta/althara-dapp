@@ -22,6 +22,7 @@ interface TenderDetails {
 }
 
 interface BidDetails {
+  id?: number;
   tenderId: bigint;
   vendor: string;
   price: bigint;
@@ -170,7 +171,18 @@ export default function TenderDetailsPage() {
           const response = await fetch(`/api/bids/${bidId}`);
           if (response.ok) {
             const data = await response.json();
-            return data.bid; // Extract the bid data from the response
+            if (data.bid) {
+              return {
+                id: Number(data.bid.id),
+                tenderId: BigInt(data.bid.tenderId),
+                vendor: data.bid.vendor,
+                price: BigInt(data.bid.price),
+                description: data.bid.description,
+                proposalCid: data.bid.proposalCid,
+                status: Number(data.bid.status),
+                submittedAt: BigInt(data.bid.submittedAt),
+              };
+            }
           }
           return null;
         });
@@ -283,7 +295,7 @@ export default function TenderDetailsPage() {
         address: bidSubmissionContractAddress,
         abi: bidSubmissionContractABI,
         functionName: "acceptBid",
-        args: [BigInt(tenderId), BigInt(selectedBid.tenderId)],
+        args: [BigInt(tenderId), tender?.bidIds[bidIndex] ?? BigInt(selectedBid.id ?? selectedBid.tenderId)],
       });
       
     } catch (error) {

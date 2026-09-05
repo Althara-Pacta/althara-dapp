@@ -3,20 +3,19 @@
 import { useState, useEffect } from "react";
 import { useAccount } from "wagmi";
 import { useRouter } from "next/navigation";
-import { } from "../../../lib/contracts/index";
 import Image from "next/image";
 import Link from "next/link";
 
 interface Tender {
   id: number;
   description: string;
-  budget: string; // Changed from bigint to string since API returns string
+  budget: string;
   requirementsCid: string;
-  government: boolean; // Changed from string to boolean based on API response
-  isActive: unknown; // Changed to unknown since API returns array
-  createdAt: string; // Changed from bigint to string since API returns string
-  bidCount?: number; // Number of bids
-  hasAcceptedBid?: boolean; // Whether any bid has been accepted
+  government: string;
+  isActive: boolean;
+  createdAt: string;
+  bidCount?: number;
+  hasAcceptedBid?: boolean;
 }
 
 export default function TendersPage() {

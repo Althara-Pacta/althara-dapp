@@ -53,7 +53,7 @@ export async function GET() {
     if (total > 0) {
       try {
         // Try to get the first tender to see if it exists (start from ID 1)
-        await contract.read.getTenderDetails([BigInt(1)]);
+        await contract.read.getTenderInfo([BigInt(1)]);
       } catch (error) {
         // If first tender doesn't exist, return empty array
         if (error instanceof Error && error.message.includes('InvalidTenderId')) {
@@ -72,7 +72,7 @@ export async function GET() {
     for (let i = 0; i < total; i += batchSize) {
       const batch = [];
       for (let j = 0; j < batchSize && i + j < total; j++) {
-        batch.push(contract.read.getTenderDetails([BigInt(i + j + 1)])); // Start from ID 1
+        batch.push(contract.read.getTenderInfo([BigInt(i + j + 1)])); // Start from ID 1
       }
       tenderPromises.push(Promise.all(batch));
     }
@@ -89,15 +89,18 @@ export async function GET() {
     const tenderResults = batchResults.flat();
     
     const tenders = tenderResults.map((tender: unknown, index: number) => {
-      const tenderData = tender as [string, bigint, string, boolean, bigint];
+      const tenderData = tender as [string, bigint, string, boolean, bigint[], string, bigint];
       return {
         id: index + 1, // Use actual tender ID (starting from 1)
         description: tenderData[0],
         budget: tenderData[1].toString(),
         requirementsCid: tenderData[2],
-        government: tenderData[3],
-        isActive: tenderData[4],
-        createdAt: tenderData[4].toString(), // Use index 4 since the tuple has 5 elements
+        completed: tenderData[3],
+        isActive: !tenderData[3],
+        bidCount: tenderData[4]?.length ?? 0,
+        hasAcceptedBid: tenderData[3],
+        government: tenderData[5],
+        createdAt: tenderData[6].toString(),
       };
     });
 

@@ -30,7 +30,15 @@ export async function GET(
     });
 
     // Get bid data from smart contract
-    const bid = await contract.read.getBidInfo([BigInt(bidId)]);
+    const bid = (await contract.read.getBidInfo([BigInt(bidId)])) as [
+      bigint,
+      string,
+      bigint,
+      string,
+      string,
+      number,
+      bigint
+    ];
 
     if (!bid) {
       return NextResponse.json(
@@ -43,13 +51,13 @@ export async function GET(
       success: true,
       bid: {
         id: bidId,
-        tenderId: bid[0],
+        tenderId: bid[0].toString(),
         vendor: bid[1],
-        price: bid[2],
+        price: bid[2].toString(),
         description: bid[3],
         proposalCid: bid[4],
         status: bid[5],
-        submittedAt: bid[6],
+        submittedAt: bid[6].toString(),
       },
     });
 

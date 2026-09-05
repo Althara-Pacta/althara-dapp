@@ -6,7 +6,7 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto text-center">
         {/* Tagline */}
         <p className="text-lg text-gray-600 mb-6 font-medium">
-          Decentralize. Transparent. Secure.
+          Decentralized. Transparent. Secure.
         </p>
 
         {/* Main Headline */}

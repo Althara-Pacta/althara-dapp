@@ -30,7 +30,15 @@ export async function GET(
     });
 
     // Get tender data from smart contract
-    const tender = await contract.read.getTenderDetails([BigInt(tenderId)]);
+    const tender = (await contract.read.getTenderInfo([BigInt(tenderId)])) as [
+      string,
+      bigint,
+      string,
+      boolean,
+      bigint[],
+      string,
+      bigint
+    ];
 
     if (!tender) {
       return NextResponse.json(
@@ -44,11 +52,14 @@ export async function GET(
       tender: {
         id: tenderId,
         description: tender[0],
-        budget: tender[1],
+        budget: tender[1].toString(),
         requirementsCid: tender[2],
-        government: tender[3],
-        isActive: tender[4],
-        createdAt: tender[4], // Use index 4 since the tuple has 5 elements
+        completed: tender[3],
+        isActive: !tender[3],
+        bidCount: tender[4]?.length ?? 0,
+        bidIds: tender[4]?.map((bidId) => bidId.toString()) ?? [],
+        government: tender[5],
+        createdAt: tender[6].toString(),
       },
     });
 

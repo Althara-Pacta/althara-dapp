@@ -1,4 +1,4 @@
-# Althara Pacta - Testing
+# Althara Pacta
 
 A comprehensivee decentralized application for managing government tenders using blockchain technology, built with Next.js, Tailwind CSS, and Web3.
 

@@ -13,8 +13,8 @@ A comprehensivee decentralized application for managing government tenders using
 
 The DApp uses several smart contracts deployed on Sepolia testnet:
 
-- **TenderContract**: Manages tender creation and lifecycle
-- **BidSubmissionContract**: Handles bid submissions and evaluations
+- **TenderContract**: Manages tender creation and lifecycle.
+- **BidSubmissionContract**: Handles bid submissions and evaluations.
 
 ## Environment Setup
 
